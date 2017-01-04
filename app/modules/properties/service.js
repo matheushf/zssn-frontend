@@ -3,11 +3,12 @@ angular.module('appZssn')
         return $resource('http://zssn-backend-example.herokuapp.com/api/people/:person_id', null, {
             trade: {
                 method: 'POST',
-                url: 'http://zssn-backend-example.herokuapp.com/api/people/{person_id}/properties/trade_item.json'
+                url: 'http://zssn-backend-example.herokuapp.com/api/people/:person_id/properties/trade_item'
             },
             fetch: {
                 method: 'GET',
-                url: 'http://zssn-backend-example.herokuapp.com/api/people/{person_id}/properties.json'
+                isArray: true,
+                url: 'http://zssn-backend-example.herokuapp.com/api/people/:person_id/properties'
             }
         })
     });

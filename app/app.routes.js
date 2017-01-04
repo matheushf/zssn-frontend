@@ -4,12 +4,12 @@ angular.module('appZssn')
         $urlRouterProvider.otherwise('/home');
 
         $stateProvider
-            // HOME
+        // HOME
             .state('home', {
                 url: '/home',
                 templateUrl: 'modules/home/home.html'
             })
-                
+
             // PEOPLE
             .state('people', {
                 url: '/people',
@@ -31,11 +31,21 @@ angular.module('appZssn')
                 templateUrl: 'modules/people/people.report-infection.html',
                 controller: 'PeopleController'
             })
-                
+
             // PROPERTIES
             .state('properties', {
                 url: '/properties',
                 templateUrl: 'modules/properties/properties.html',
+                controller: 'PropertiesController'
+            })
+            .state('properties.trade-items', {
+                url: '/properties.trade-items',
+                templateUrl: 'modules/properties/trade-items',
+                controller: 'PropertiesController'
+            })
+            .state('properties.fetch-items', {
+                url: '/properties.fetch-items',
+                templateUrl: 'modules/properties/fetch-items',
                 controller: 'PropertiesController'
             })
     }]);

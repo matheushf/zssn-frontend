@@ -1,0 +1,14 @@
+<br>
+<h3>Fetch items from a Survivor</h3>
+
+<label>ID</label>
+<input type="text" placeholder="Id" ng-model="id" autofocus>
+<input type="submit" value="Fetch items" ng-click="fetch(id)">
+
+<div ng-show="items">
+
+    <h3>Items: </h3>
+
+    {{items.name}} -  {{items.points}}
+
+</div>
