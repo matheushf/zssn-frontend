@@ -1,3 +1,4 @@
-/**
- * Created by matheushf on 1/3/17.
- */
+angular.module('appZssn')
+    .factory('PeopleApi', function ($resource) {
+        return $resource('http://zssn-backend-example.herokuapp.com/api/people/:id');
+    });

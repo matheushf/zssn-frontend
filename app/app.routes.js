@@ -1,8 +1,16 @@
 angular.module('appZssn')
-    .config(["$stateProvider", function ($stateProvider) {
-       $stateProvider
-           .state('home', {
-               url: '/home',
-               templateUrl: 'modules/people/people.html'
-           })
+    .config(["$stateProvider", "$urlRouterProvider", function ($stateProvider, $urlRouterProvider) {
+
+        $urlRouterProvider.otherwise('/home');
+
+        $stateProvider
+            .state('home', {
+                url: '/home',
+                templateUrl: 'modules/home/home.html'
+            })
+            .state('people', {
+                url: '/people',
+                templateUrl: 'modules/people/people.html',
+                controller: 'PeopleController'
+            })
     }]);

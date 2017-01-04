@@ -30,7 +30,8 @@
     "jquery.maskedinput": "^1.4.1",
     "angular-resource": "^1.6.1",
     "angular": "^1.6.1",
-    "angular-ui-router": "^0.3.2"
+    "angular-ui-router": "^0.3.2",
+    "foundation-sites": "^6.3.0"
   },
   "overrides": {
     "bootstrap": {
