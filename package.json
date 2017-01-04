@@ -6,7 +6,8 @@
   "scripts": {
     "test": "npm test",
     "build": "webpack",
-    "start": "node_modules/webpack-dev-server/bin/webpack-dev-server.js"
+    "start": "node_modules/webpack-dev-server/bin/webpack-dev-server.js",
+    "server": "webpack-dev-server --history-api-fallback --inline --progress"
   },
   "keywords": [
     "javascript",
@@ -47,6 +48,7 @@
     "wiredep": "^4.0.0"
   },
   "dependencies": {
-    "babel-polyfill": "^6.20.0"
+    "babel-polyfill": "^6.20.0",
+    "angular": "latest"
   }
 }
