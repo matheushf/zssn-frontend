@@ -1,0 +1,24 @@
+<h1>Edit people</h1>
+
+<h3>Search your survivor: </h3>
+<input type="text" name="id" placeholder="id" ng-model="survivorId" autofocus>
+<input type="submit" value="Search" ng-click="searchSurvivor(survivorId)">
+
+<div ng-show="survivor.name">
+    <h3> Survivor data: </h3>
+
+    <form>
+        <input type="text" id="name" placeholder="Name" ng-model="survivor.name">
+        <input type="text" id="age" placeholder="Age" ng-model="survivor.age">
+
+        <label>
+            Male<input type="radio" name="gender" value="M" ng-model="survivor.gender">
+        </label>
+
+        <label>
+            Female<input type="radio" name="gender" value="F" ng-model="survivor.gender">
+        </label>
+
+        <input type="submit" value="Edit Survivor" ng-click="editSurvivor()">
+    </form>
+</div>

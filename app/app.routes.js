@@ -13,4 +13,14 @@ angular.module('appZssn')
                 templateUrl: 'modules/people/people.html',
                 controller: 'PeopleController'
             })
+            .state('people.add', {
+                url: '/people.add',
+                templateUrl: 'modules/people/people.add.html',
+                controller: 'PeopleController'
+            })
+            .state('people.edit', {
+                url: '/people.edit',
+                templateUrl: 'modules/people/people.edit.html',
+                controller: 'PeopleController'
+            })
     }]);
