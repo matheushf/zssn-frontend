@@ -1,0 +1,13 @@
+<h3>Wanna report dude?</h3>
+
+<label>
+    Who's making the report?
+</label>
+<input type="text" placeholder="id" ng-model="reporter">
+
+<label>
+    Who's infected?
+</label>
+<input type="text" placeholder="id" ng-model="survivorReported">
+
+<input type="submit" ng-click="reportInfection(reporter, survivorReported)" value="Report Infection">

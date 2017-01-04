@@ -3,9 +3,15 @@
 <h3>Add Survivors</h3>
 
 <form>
-    <input type="text" id="name" placeholder="Name">
-    <input type="text" id="age" placeholder="Age">
-    Male<input type="radio" name="gender">
-    Female<input type="radio" name="gender">
-    <input type="submit" value="Add Survivor">
+    <input type="text" ng-model="survivor.name" placeholder="Name">
+    <input type="text" ng-model="survivor.age" placeholder="Age">
+
+    <label>
+        <input type="radio" name="gender" ng-model="survivor.gender" value="M">Male
+    </label>
+    <label>
+        <input type="radio" name="gender" ng-model="survivor.gender" value="F">Female
+    </label>
+
+    <input type="submit" value="Add Survivor" ng-click="addSurvivor()">
 </form>

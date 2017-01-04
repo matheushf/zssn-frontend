@@ -3,17 +3,15 @@
 angular.module('appZssn')
     .controller('PeopleController', function ($scope, PeopleApi) {
 
-        $scope.survivorId = null;
-        
-            /*var peopleEntry = PeopleApi.get({
-             id: '55490924-68f4-4fca-8b9c-d6b8cfdd41f4'
-             }, function () {
-             console.log(peopleEntry);
-             });
+            $scope.survivorId = null;
 
-             var peopleEntries = PeopleApi.query(function () {
-             console.log(peopleEntries)
-             });*/
+            $scope.addSurvivor = function () {
+                console.log($scope.survivor);
+
+                var peopleEntry = PeopleApi.save($scope.survivor, function () {
+                    console.log(peopleEntry);
+                });
+            };
 
             $scope.searchSurvivor = function (id) {
 
@@ -37,5 +35,19 @@ angular.module('appZssn')
                 });
             };
 
+            $scope.reportInfected = function (reporter, survivorReported) {
+                var peopleReport = PeopleApi.reportInfection({id: $scope.survivorId}, {
+                    reporter,
+                    survivorReported
+                }, function () {
+                    console.log(peopleReport);
+                })
+            };
+
+            $scope.fetchAll = function () {
+                var peopleEntries = PeopleApi.query(function () {
+                    console.log(peopleEntries)
+                })
+            };
         }
     );
