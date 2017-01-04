@@ -1,0 +1,25 @@
+@import "variables";
+
+@font-face {
+  font-family: truthwillout;
+  src: url(../fonts/truthwillout.ttf);
+}
+@font-face {
+  font-family: Handschrift;
+  src: url(../fonts/Handschrift.ttf);
+}
+
+body,
+html {
+  width: 100%;
+  height: 100%;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Handschrift", sans-serif;
+  font-weight: bold;
+}
+
+body {
+  background-color: black;
+}

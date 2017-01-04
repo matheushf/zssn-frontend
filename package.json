@@ -33,14 +33,10 @@
     "gulp-uglify": "^2.0.0",
     "gulp-watch": "^4.3.8",
     "gulp-wiredep": "0.0.0",
-    "html-webpack-plugin": "^2.25.0",
     "jshint": "^2.9.2",
     "postcss": "^5.0.21",
     "pump": "^1.0.1",
     "run-sequence": "^1.2.2",
     "wiredep": "^4.0.0"
-  },
-  "dependencies": {
-    "angular": "latest"
   }
 }
