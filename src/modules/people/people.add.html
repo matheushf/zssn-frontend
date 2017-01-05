@@ -1,6 +1,6 @@
 <div class="row">
 
-    <div class="small-12 medium-expand columns">
+    <div class="small-3 medium-expand columns">
         <h2>Add Survivors</h2>
         <br>
     </div>
@@ -8,7 +8,7 @@
 
 <div class="row">
 
-    <div class="small-1 medium-expand columns">
+    <div class="small-3 medium-expand columns">
         <label for="name" class="text-right middle large-expand">Name</label>
     </div>
 
@@ -17,16 +17,17 @@
     </div>
     <div class="small-12 columns"></div>
 
-    <div class="small-1 columns">
+    <div class="small-3 columns">
         <label for="age" class="text-right middle">Age</label>
     </div>
 
     <div class="small-6  columns">
         <input type="number" id="age" ng-model="survivor.age" placeholder="Age">
     </div>
+
     <div class="small-12 columns"></div>
 
-    <div class="small-1 columns">
+    <div class="small-3 columns">
         <label class="text-right">Gender</label>
     </div>
 
@@ -39,7 +40,11 @@
         <label for="genderF">Female </label>
     </div>
 
-    <div class="small-12 columns"></div>
+</div>
 
-    <input type="submit" class="button" value="Add Survivor" ng-click="addSurvivor()">
+<div class="row">
+
+    <div class="small-12 columns text-center">
+        <input type="submit" class="button" value="Add Survivor" ng-click="addSurvivor()">
+    </div>
 </div>

@@ -1,12 +1,17 @@
 'use strict';
 
 angular.module('appZssn')
-    .controller('PeopleController', function ($scope, PeopleApi) {
+    .controller('PeopleController', function ($scope, $state, PeopleApi) {
 
             $scope.survivorId = null;
 
+            if ($state.current.name == 'people.report-infection' && !$scope.allPeople) {
+                PeopleApi.getAll(null, function (data) {
+                    $scope.allPeople = data;
+                });
+            }
+
             $scope.addSurvivor = function () {
-                console.log($scope.survivor);
 
                 var peopleEntry = PeopleApi.save($scope.survivor, function () {
                     console.log(peopleEntry);
@@ -36,6 +41,19 @@ angular.module('appZssn')
             };
 
             $scope.reportInfected = function (reporter, survivorReported) {
+
+                console.log(reporter);
+
+                return false;
+                var reporterId = reporter.split('/');
+                reporterId = reporterId[reporterId.length - 1];
+
+                var survivorReportedId = survivorReported.split('/');
+                survivorReportedId = survivorReported[survivorReported.length - 1];
+
+                console.log(reporterId);
+                return false;
+
                 var peopleReport = PeopleApi.reportInfection({id: $scope.survivorId}, {
                     reporter,
                     survivorReported
@@ -46,7 +64,7 @@ angular.module('appZssn')
 
             $scope.fetchAll = function () {
                 var peopleEntries = PeopleApi.query(function () {
-                    console.log(peopleEntries)
+                    return peopleEntries;
                 })
             };
         }

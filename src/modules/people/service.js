@@ -1,21 +1,29 @@
 angular.module('appZssn')
     .factory('PeopleApi', function ($http, $resource) {
-        return $resource('http://zssn-backend-example.herokuapp.com/api/people', null,
+
+        var url = 'http://zssn-backend-example.herokuapp.com/api/people';
+
+        return $resource(url, null,
             {
                 save: {
                     method: 'POST',
-                    url: 'http://zssn-backend-example.herokuapp.com/api/people'
+                    url: url
                 },
                 get: {
                     method: 'GET',
-                    url: 'http://zssn-backend-example.herokuapp.com/api/people/:id'
+                    url: url + '/:id'
+                },
+                getAll: {
+                    method: 'GET',
+                    isArray: true,
+                    url: url
                 },
                 update: {
                     method: 'PATCH',
                     headers: {'Content-Type': 'application/json;charset=utf-8'}
                 },
                 reportInfection: {
-                    url: 'http://zssn-backend-example.herokuapp.com/api/people/:id/report_infection',
+                    url: url + '/:id/report_infection',
                     method: 'POST'
                 }
             });
