@@ -1,0 +1,26 @@
+.menu-primary {
+  li {
+    border: 1px solid red;
+    margin-right: 10px;
+    min-width: 160px;
+    text-align: center;
+
+    a {
+      display: inline-block;
+      color: white;
+    }
+  }
+}
+
+.menu-secondary {
+  margin-top: 55px;
+
+  li {
+    margin-right: 10px;
+    border-bottom: 1px solid red;
+
+    a {
+      color: grey;
+    }
+  }
+}

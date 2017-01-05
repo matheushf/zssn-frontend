@@ -1,15 +1,45 @@
-<h3>Add Survivors</h3>
+<div class="row">
 
-<form>
-    <input type="text" ng-model="survivor.name" placeholder="Name">
-    <input type="text" ng-model="survivor.age" placeholder="Age">
+    <div class="small-12 medium-expand columns">
+        <h2>Add Survivors</h2>
+        <br>
+    </div>
+</div>
 
-    <label>
-        <input type="radio" name="gender" ng-model="survivor.gender" value="M">Male
-    </label>
-    <label>
-        <input type="radio" name="gender" ng-model="survivor.gender" value="F">Female
-    </label>
+<div class="row">
 
-    <input type="submit" value="Add Survivor" ng-click="addSurvivor()">
-</form>
+    <div class="small-1 medium-expand columns">
+        <label for="name" class="text-right middle large-expand">Name</label>
+    </div>
+
+    <div class="small-6 medium-expand columns">
+        <input type="text" id="name" ng-model="survivor.name" placeholder="Name">
+    </div>
+    <div class="small-12 columns"></div>
+
+    <div class="small-1 columns">
+        <label for="age" class="text-right middle">Age</label>
+    </div>
+
+    <div class="small-6  columns">
+        <input type="number" id="age" ng-model="survivor.age" placeholder="Age">
+    </div>
+    <div class="small-12 columns"></div>
+
+    <div class="small-1 columns">
+        <label class="text-right">Gender</label>
+    </div>
+
+    <div class="large-6 columns">
+
+        <input type="radio" id="genderM" name="gender" ng-model="survivor.gender" value="M">
+        <label for="genderM">Male </label>
+
+        <input type="radio" id="genderF" name="gender" ng-model="survivor.gender" value="F">
+        <label for="genderF">Female </label>
+    </div>
+
+    <div class="small-12 columns"></div>
+
+    <input type="submit" class="button" value="Add Survivor" ng-click="addSurvivor()">
+</div>

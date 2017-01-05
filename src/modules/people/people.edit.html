@@ -1,24 +1,78 @@
-<h1>Edit people</h1>
+<div class="row">
+    <div class="small-12 columns">
+        <h2>Edit people</h2>
+        <br>
+    </div>
+</div>
 
-<label>Search your survivor: </label>
-<input type="text" name="id" placeholder="id" ng-model="survivorId" autofocus>
-<input type="submit" value="Search" ng-click="searchSurvivor(survivorId)">
+<div class="row">
+    <div class="small-2 columns">
+        <label for="id" class="text-right middle">Search your survivor: </label>
+    </div>
 
-<div ng-show="survivor.name">
-    <h3> Survivor data: </h3>
+    <div class="small-6 columns">
+        <input type="text" id="id" name="id" placeholder="id" ng-model="survivorId" autofocus>
+    </div>
 
-    <form>
-        <input type="text" id="name" placeholder="Name" ng-model="survivor.name">
-        <input type="text" id="age" placeholder="Age" ng-model="survivor.age">
+</div>
 
-        <label>
-            Male<input type="radio" name="gender" value="M" ng-model="survivor.gender">
-        </label>
+<div class="row">
+    <div class="small-12 columns">
+        <input type="submit" value="Search" ng-click="searchSurvivor(survivorId)" class="button">
+    </div>
+</div>
 
-        <label>
-            Female<input type="radio" name="gender" value="F" ng-model="survivor.gender">
-        </label>
+<br>
+<br>
 
-        <input type="submit" value="Edit Survivor" ng-click="editSurvivor()">
-    </form>
+<div ng-show="true">
+    <div class="row">
+        <h4> Survivor data: </h4>
+    </div>
+
+    <div class="row">
+
+        <div class="small-2 columns">
+            <label for="name" class="text-right middle">
+                Name:
+            </label>
+        </div>
+
+        <div class="small-6 columns">
+            <input type="text" id="name" placeholder="Name" ng-model="survivor.name">
+        </div>
+
+        <div class="small-12 columns"></div>
+
+        <div class="small-2 columns">
+            <label for="age" class="text-right middle">
+                Age:
+            </label>
+        </div>
+
+        <div class="small-6 columns">
+            <input type="text" id="age" placeholder="Age" ng-model="survivor.age">
+        </div>
+
+        <div class="small-12 columns"></div>
+
+        <div class="small-2 columns">
+            <label class="text-right">
+                Gender:
+            </label>
+        </div>
+
+        <div class="large-6 columns">
+
+            <input type="radio" id="genderM" name="gender" ng-model="survivor.gender" value="M">
+            <label for="genderM">Male </label>
+
+            <input type="radio" id="genderF" name="gender" ng-model="survivor.gender" value="F">
+            <label for="genderF">Female </label>
+        </div>
+
+        <div class="small-12 columns"></div>
+
+        <input type="submit" value="Edit Survivor" ng-click="editSurvivor()" class="button">
+    </div>
 </div>
