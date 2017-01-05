@@ -10,6 +10,16 @@
   src: url(../fonts/Handschrift.ttf);
 }
 
+@font-face {
+  font-family: Amatic;
+  src: url(../fonts/AmaticSC-Regular.ttf);
+}
+
+@font-face {
+  font-family: RobotoThin;
+  src: url(../fonts/Roboto-Light.ttf);
+}
+
 body,
 html {
   width: 100%;
@@ -17,12 +27,14 @@ html {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: "Handschrift", sans-serif;
+  font-family: "Amatic", sans-serif;
   color: rgba(255, 3, 0, 0.79);
 }
 
 body {
   background-color: black;
+  font-family: "RobotoThin", sans-serif;
+  letter-spacing: 0.5px;
 }
 
 body, label {
