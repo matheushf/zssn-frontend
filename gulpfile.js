@@ -16,7 +16,8 @@ var gulp = require('gulp'),
     concatCSS = require('gulp-concat-css'),
     mainBowerFiles = require('main-bower-files'),
     rename = require('gulp-rename'),
-    gulpIf = require('gulp-if');
+    gulpIf = require('gulp-if'),
+    browserSync = require('browser-sync').create();
 
 var srcStyles = [
     './src/assets/sass/**/*.scss'
@@ -57,11 +58,12 @@ gulp.task('styles', function () {
         gulp.src(srcStyles),
         compass({
             config_file: './config.rb',
-            css: './assets/css',
-            sass: './assets/sass'
+            css: '.src//assets/css',
+            sass: './src/assets/sass'
         }),
         postcss(processors),
-        gulp.dest('./assets/css/')
+        gulp.dest('./src/assets/css/'),
+        browserSync.stream()
     ]);
 });
 
@@ -149,6 +151,7 @@ gulp.task('fonts-dist', function () {
 });
 
 gulp.task('bower', function () {
+
     /*pump([
      gulp.src(srcWiredep),
      wiredep({
@@ -158,6 +161,7 @@ gulp.task('bower', function () {
      ]);*/
 
     var condition = function (file) {
+
         var ext = file.path.split('.');
         ext = ext[ext.length - 1];
 
@@ -167,6 +171,7 @@ gulp.task('bower', function () {
         return false;
     };
 
+    // Retrieve all bower files to concatenate and compress in a single vendor file
     pump([
         gulp.src(mainBowerFiles()),
         gulpIf(condition, concatJS('vendor.js'), concatCSS('vendor.css')),
@@ -184,18 +189,23 @@ gulp.task('bower', function () {
 
 });
 
-
 gulp.task('watch:styles', function () {
     gulp.watch('**/*.scss', ['styles']);
 });
 
+// Watch for file changes and reload
 gulp.task('watch', function () {
-    refresh.listen();
-    refresh.options.quiet = true;
+    // refresh.listen();
+    // refresh.options.quiet = true;
 
-    gulp.watch(srcPaths, function () {
-        runSequence('styles', ['reload']);
+    // Initialize browser sync
+    browserSync.init({
+        server: {
+            baseDir: "./src"
+        }
     });
+
+    gulp.watch(["./src/**/*.js", "./src/**/*.html", "./src/**/*.scss"], ['styles']).on('change', browserSync.reload);
 });
 
 gulp.task('build', function () {

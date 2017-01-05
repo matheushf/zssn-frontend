@@ -4,10 +4,7 @@
   "description": "FrontEnd test for CodeMiner42",
   "main": "index.js",
   "scripts": {
-    "test": "npm test",
-    "build": "webpack",
-    "start": "node_modules/webpack-dev-server/bin/webpack-dev-server.js",
-    "server": "webpack-dev-server --history-api-fallback --inline --progress"
+    "test": "npm test"
   },
   "keywords": [
     "javascript",
@@ -21,19 +18,26 @@
   "devDependencies": {
     "autoprefixer": "^6.3.7",
     "autoprefixer-core": "^6.0.1",
+    "browser-sync": "^2.18.5",
     "csswring": "^5.1.0",
     "gulp": "^3.9.1",
     "gulp-clean-css": "^2.0.12",
     "gulp-compass": "^2.1.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-concat-css": "^2.3.0",
+    "gulp-concat-vendor": "0.0.4",
+    "gulp-if": "^2.0.2",
     "gulp-inject": "^4.1.0",
     "gulp-jshint": "^2.0.1",
     "gulp-postcss": "^6.1.1",
     "gulp-refresh": "^1.1.0",
+    "gulp-rename": "^1.2.2",
     "gulp-sass": "^2.3.2",
     "gulp-uglify": "^2.0.0",
     "gulp-watch": "^4.3.8",
     "gulp-wiredep": "0.0.0",
     "jshint": "^2.9.2",
+    "main-bower-files": "^2.13.1",
     "postcss": "^5.0.21",
     "pump": "^1.0.1",
     "run-sequence": "^1.2.2",

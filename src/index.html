@@ -1,26 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
     <meta charset="UTF-8">
     <title>ZSSN</title>
-
+    <link rel="stylesheet" href="assets/css/vendor.css">
+    <link rel="stylesheet" href="assets/css/style.css">
 
 </head>
 
 <body ng-app="appZssn">
 
-<a ui-sref="home">Home</a>
-<a ui-sref="people">People</a>
-<a ui-sref="properties">Properties</a>
+<h1 class="app-title">Zombie Survivor Social Network</h1>
+
+<hr class="title-separator">
+
+<ul class="menu align-center">
+    <li><a ui-sref="home"><i class="fa fa-home fa-lg"></i> Home</a></li>
+    <li><a ui-sref="people"><i class="fa fa-users"></i> Survivors</a></li>
+    <li><a ui-sref="properties"><i class="fa fa-bank"></i> Properties</a></li>
+</ul>
 
 <div ui-view></div>
+
+<!-- Report area -->
+
+<div ng-controller="ReportsController" class="report-area">
+
+    <p>
+        <b> {{ reports.infected.report.description }}: </b>
+        {{ reports.infected.report.average_infected }}
+    </p>
+
+    <p>
+        <b>{{ reports.non_infected.report.description }}:</b>
+        {{ reports.non_infected.report.average_healthy }}
+    </p>
+
+    <p>
+        <b>{{ reports.people_inventory.report.description }}:</b>
+        {{ reports.people_inventory.report.average_items_quantity_per_person }}
+    </p>
+    <p>
+        <b>(Per health person: </b>
+        {{ reports.people_inventory.report.average_items_quantity_per_healthy_person }} )
+    </p>
+
+    <p>
+        <b>{{ reports.infected_points.report.description }}::</b>
+        {{ reports.infected_points.report.total_points_lost }}
+    </p>
+</div>
+
+<!-- //Report area -->
 
 <!--<script src="/bower_components/jquery/dist/jquery.js"></script>
 <script src="/bower_components/angular/angular.js"></script>
 <script src="/bower_components/angular-resource/angular-resource.js"></script>
 <script src="/bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>-->
 
-<script src="/assets/js/vendor.js"></script>
+<script src="assets/js/vendor.js"></script>
+<script src="assets/js/global.js"></script>
 
 <script src="app.js"></script>
 <script src="app.config.js"></script>
@@ -29,6 +69,8 @@
 <script src="modules/people/controller.js"></script>
 <script src="modules/properties/service.js"></script>
 <script src="modules/properties/controller.js"></script>
+<script src="modules/reports/service.js"></script>
+<script src="modules/reports/controller.js"></script>
 
 </body>
 </html>

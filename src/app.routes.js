@@ -28,7 +28,7 @@ angular.module('appZssn')
             })
             .state('people.report-infection', {
                 url: '/people.report-infection',
-                templateUrl: 'modules/people/people.report-infection.html',
+                templateUrl: 'modules/people/report-infection.html',
                 controller: 'PeopleController'
             })
 

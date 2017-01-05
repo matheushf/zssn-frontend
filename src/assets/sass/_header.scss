@@ -4,6 +4,7 @@
   font-family: truthwillout;
   src: url(../fonts/truthwillout.ttf);
 }
+
 @font-face {
   font-family: Handschrift;
   src: url(../fonts/Handschrift.ttf);
@@ -17,9 +18,26 @@ html {
 
 h1, h2, h3, h4, h5, h6 {
   font-family: "Handschrift", sans-serif;
-  font-weight: bold;
+  color: rgba(255, 3, 0, 0.79);
 }
 
 body {
   background-color: black;
+}
+
+body, label {
+  color: white;
+}
+
+.app-title {
+  margin-top: 15px;
+  font-family: "truthwillout", sans-serif;
+  color: red;
+  font-size: 90px;
+  text-align: center;
+}
+
+.title-separator {
+  width: 50%;
+  border-color: white;
 }
