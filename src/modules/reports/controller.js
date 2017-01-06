@@ -9,7 +9,6 @@ angular.module("appZssn")
         };
 
         ReportsApi.infected(function (data) {
-            console.log(data);
             $scope.reports.infected = data;
         });
 

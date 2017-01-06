@@ -40,6 +40,22 @@
         <label for="genderF">Female </label>
     </div>
 
+    <div class="small-12 columns"><br></div>
+
+    <div class="large-3 collumns">
+        <label class="text-right">Location of the Player: </label>
+    </div>
+
+    <div class="large-6 columns">
+        <ui-gmap-google-map center='map.center' zoom='map.zoom' id="zeMane" events="map.events">
+            <ui-gmap-marker idkey='marker.id' coords='marker.coords' options="marker.options"></ui-gmap-marker>
+        </ui-gmap-google-map>
+
+        <input type="hidden" ng-model="survivor.location" id="map-coordenades">
+
+        <br>
+    </div>
+
 </div>
 
 <div class="row">

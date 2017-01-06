@@ -1,4 +1,5 @@
 angular.module('appZssn', [
     'ngResource',
-    'ui.router'
+    'ui.router',
+    'uiGmapgoogle-maps'
 ]);

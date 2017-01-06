@@ -19,17 +19,17 @@ angular.module('appZssn')
             .state('people.add', {
                 url: '/people.add',
                 templateUrl: 'modules/people/people.add.html',
-                controller: 'PeopleController'
+                controller: 'PeopleControllerAdd'
             })
             .state('people.edit', {
                 url: '/people.edit',
                 templateUrl: 'modules/people/people.edit.html',
-                controller: 'PeopleController'
+                controller: 'PeopleControllerEdit'
             })
             .state('people.report-infection', {
                 url: '/people.report-infection',
                 templateUrl: 'modules/people/report-infection.html',
-                controller: 'PeopleController'
+                controller: 'PeopleControllerReportInfection'
             })
 
             // PROPERTIES

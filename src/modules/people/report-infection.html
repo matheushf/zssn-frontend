@@ -4,53 +4,52 @@
     </div>
 </div>
 
-<div class="row">
-    <div class="small-12 columns"></div>
-
-    <div class="small-3 columns">
-        <label for="reporter" class="text-right middle">
-            Who's making the report?
-        </label>
-    </div>
-
-    <div class="small-6 columns">
-        <!--<input type="text" id="reporter" placeholder="id" ng-model="reporter">-->
-
-        <select id="reporter" ng-model="reporter"
-                ng-options="survivor.name for survivor in allPeople track by survivor.location">
-            <option value="" selected="selected">Choose one...</option>
-            <!--<option ng-repeat="survivor in allPeople" value="{{survivor.location}}">{{ survivor.name }}</option>-->
-        </select>
-
-    </div>
-
-    <div class="small-12 columns"></div>
-
-    <div class="small-3 columns">
-        <label for="survivorReported" class="text-right middle">
-            Who's infected?
-        </label>
-    </div>
-
-    <div class="small-6 columns">
-        <!--<input type="text" id="survivorReported" placeholder="id" ng-model="survivorReported">-->
-
-        <select id="survivorReported" ng-model="survivorReported"
-                ng-options="survivor.name for survivor in allPeople track by survivor.location">
-            <option value="" selected="selected">Choose one...</option>
-            <!--<option ng-repeat="survivor in allPeople" value="survivor.location">{{ survivor.name }}</option>-->
-        </select>
-    </div>
-
 </div>
+<form>
+    <div class="row">
 
-<div class="row">
+        <div class="small-12 columns"></div>
 
-    <!--<div class="small-5 columns"></div>-->
+        <div class="small-3 columns">
+            <label for="reporter" class="text-right middle">
+                Who's making the report?
+            </label>
+        </div>
 
-    <div class="small-12 text-center columns">
-        <input type="submit" ng-click="reportInfected(reporter, survivorReported)" value="Report Infection"
-               class="button">
+        <div class="small-6 columns">
+            <input type="text" id="reporter" placeholder="id" ng-model="reporter" required autofocus>
+
+            <!--<select id="reporter" ng-model="reporter"
+                    ng-options="survivor.name for survivor in allPeople track by survivor" required>
+                <option value="" selected="selected">Choose one...</option>
+            </select>-->
+
+        </div>
+
+        <div class="small-12 columns"></div>
+
+        <div class="small-3 columns">
+            <label for="survivorReported" class="text-right middle">
+                Who's infected?
+            </label>
+        </div>
+
+        <div class="small-6 columns">
+            <!--<input type="text" id="survivorReported" placeholder="id" ng-model="survivorReported">-->
+
+            <select id="survivorReported" ng-model="survivorReported"
+                    ng-options="survivor.name for survivor in allPeople track by survivor.location" required>
+                <option value="" selected="selected">Choose one...</option>
+            </select>
+        </div>
+
     </div>
-</div>
-</div>
+
+    <div class="row">
+
+        <div class="small-12 text-center columns">
+            <input type="submit" ng-click="reportInfected(reporter, survivorReported.location)"
+                   value="Report Infection"
+                   class="button">
+        </div>
+</form>
