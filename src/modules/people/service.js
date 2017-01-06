@@ -20,7 +20,8 @@ angular.module('appZssn')
                 },
                 update: {
                     method: 'PATCH',
-                    headers: {'Content-Type': 'application/json;charset=utf-8'}
+                    headers: {'Content-Type': 'application/json;charset=utf-8'},
+                    url: url + '/:id'
                 },
                 reportInfection: {
                     url: url + '/:id/report_infection',

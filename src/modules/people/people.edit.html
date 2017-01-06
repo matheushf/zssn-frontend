@@ -25,7 +25,7 @@
 <br>
 <br>
 
-<div ng-show="survivor.name">
+<div ng-if="survivor.name">
     <div class="row">
         <h4> Survivor data: </h4>
     </div>
@@ -71,8 +71,22 @@
             <label for="genderF">Female </label>
         </div>
 
-        <div class="small-12 columns"></div>
 
-        <input type="submit" value="Edit Survivor" ng-click="editSurvivor()" class="button">
+        <div class="small-12 columns"><br></div>
+
+        <div class="large-3 collumns">
+            <label class="text-right">Location of the Player: </label>
+        </div>
+
+        <div class="large-6 columns">
+            <ui-gmap-google-map center='map.center' zoom='map.zoom' events="map.events">
+                <ui-gmap-marker idkey='marker.id' coords='marker.coords' options="marker.options"></ui-gmap-marker>
+            </ui-gmap-google-map>
+
+            <input type="hidden" ng-model="survivor.lonlat" id="map-coordenades">
+
+            <br>
+
+            <input type="submit" value="Edit Survivor" ng-click="editSurvivor()" class="button">
+        </div>
     </div>
-</div>
