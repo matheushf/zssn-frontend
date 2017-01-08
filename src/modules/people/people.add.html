@@ -13,7 +13,7 @@
     </div>
 
     <div class="small-6 medium-expand columns">
-        <input type="text" id="name" ng-model="survivor.name" placeholder="Name">
+        <input type="text" id="name" ng-model="survivor.name" placeholder="Name" autofocus>
     </div>
     <div class="small-12 columns"></div>
 
@@ -47,18 +47,39 @@
     </div>
 
     <div class="large-5 columns">
-        <select>
+        <select ng-model="item" id="table-items-select">
             <option value="">Choose one...</option>
-            <option value="water">Water</option>
-            <option value="food">Food</option>
-            <option value="medication">Medication</option>
-            <option value="ammunition">Ammunition</option>
+            <option value="Water">Water</option>
+            <option value="Food">Food</option>
+            <option value="Medication">Medication</option>
+            <option value="Ammunition">Ammunition</option>
         </select>
     </div>
 
     <div class="large-1 columns text-right">
-        <input type="submit" class="button" value="Add">
+        <input type="submit" class="button" value="Add" id="table-items-add">
     </div>
+
+    <!--<div class="items hide">-->
+    <div class="small-12 columns"><br></div>
+    <div class="large-3 columns text-right"></div>
+
+    <div class="large-6 columns">
+
+        <table id="table-items" class="hide">
+            <thead>
+            <tr>
+                <td>Item</td>
+                <td>Quantity</td>
+                </td><td>
+            </tr>
+            </thead>
+            <tbody id="table-items-body">
+
+            </tbody>
+        </table>
+    </div>
+    <!--</div>-->
 
     <div class="small-12 columns"><br></div>
 
@@ -81,6 +102,6 @@
 <div class="row">
 
     <div class="small-12 columns text-center">
-        <input type="submit" class="button" value="Add Survivor" ng-click="addSurvivor()">
+        <input type="submit" class="button" value="Add Survivor" ng-click="addSurvivor()" id="save">
     </div>
 </div>

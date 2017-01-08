@@ -4,6 +4,7 @@ angular.module('appZssn')
     .controller('PeopleController', function ($scope, $state, PeopleApi) {
 
         $scope.survivorId = null;
+        $scope.success = false;
 
         // Add Survivor, map options
         $scope.map = {
@@ -64,14 +65,29 @@ angular.module('appZssn')
         };
 
     })
-    .controller("PeopleControllerAdd", function ($scope, $controller, PeopleApi) {
+    .controller("PeopleControllerAdd", function ($scope, $sce, $controller, PeopleApi) {
         angular.extend(this, $controller('PeopleController', {$scope: $scope}));
 
         $scope.addSurvivor = function () {
 
-            var peopleEntry = PeopleApi.save($scope.survivor, function () {
-                console.log(peopleEntry);
+            //Get the items values and make the string
+            var string_value = "";
+            $(".item-name").each(function () {
+                string_value += $(this).attr("id") + ":" + $(this).val() + ";";
             });
+            $scope.survivor.items = string_value;
+
+            var peopleEntry = PeopleApi.save($scope.survivor, function () {
+                if (peopleEntry)
+                    $scope.success = true;
+            });
+        };
+
+        $scope.addItem = function (item) {
+            window.tabelaHtml += '<tr><td>' + item + '</td></tr>';
+
+            $scope.itemsHtml = $sce.trustAsHtml(tabelaHtml);
+
         };
 
     })
@@ -80,6 +96,7 @@ angular.module('appZssn')
 
         $scope.searchSurvivor = function (id) {
 
+            // Change the map to the right position, from the survivor
             var peopleEntry = PeopleApi.get({
                 id: id
             }, function () {
@@ -93,16 +110,15 @@ angular.module('appZssn')
 
                 $scope.reCenter();
 
-                // console.log($scope.survivor.lonlat, ' EDIT')
-
             });
         };
 
         // Edit info about a survivor
         $scope.editSurvivor = function () {
 
-            var peopleEdit = PeopleApi.update({id: $scope.survivorId}, $scope.survivor, function () {
-                console.log(peopleEdit);
+            var peopleEntry = PeopleApi.update({id: $scope.survivorId}, $scope.survivor, function () {
+                if (peopleEntry)
+                    $scope.success = true;
             });
         };
 
