@@ -25,80 +25,83 @@
 <br>
 <br>
 
-<div ng-if="survivor.name">
-    <div class="row">
-        <h4> Survivor data: </h4>
+<form>
+    <div ng-if="survivor.name">
+
+        <div class="row">
+            <h4> Survivor data: </h4>
+        </div>
+
+        <div class="row">
+
+            <div class="small-3 columns">
+                <label for="name" class="text-right middle">
+                    Name:
+                </label>
+            </div>
+
+            <div class="small-6 columns">
+                <input type="text" id="name" placeholder="Name" ng-model="survivor.name">
+            </div>
+
+            <div class="small-12 columns"></div>
+
+            <div class="small-3 columns">
+                <label for="age" class="text-right middle">
+                    Age:
+                </label>
+            </div>
+
+            <div class="small-6 columns">
+                <input type="text" id="age" placeholder="Age" ng-model="survivor.age">
+            </div>
+
+            <div class="small-12 columns"></div>
+
+            <div class="small-3 columns">
+                <label class="text-right">
+                    Gender:
+                </label>
+            </div>
+
+            <div class="large-6 columns">
+
+                <input type="radio" id="genderM" name="gender" ng-model="survivor.gender" value="M">
+                <label for="genderM">Male </label>
+
+                <input type="radio" id="genderF" name="gender" ng-model="survivor.gender" value="F">
+                <label for="genderF">Female </label>
+            </div>
+
+
+            <div class="small-12 columns"><br></div>
+
+            <div class="large-3 collumns">
+                <label class="text-right">Location of the Player: </label>
+            </div>
+
+            <div class="large-6 columns">
+                <ui-gmap-google-map center='map.center' zoom='map.zoom' events="map.events">
+                    <ui-gmap-marker idkey='marker.id' coords='marker.coords' options="marker.options"></ui-gmap-marker>
+                </ui-gmap-google-map>
+
+                <input type="hidden" ng-model="survivor.lonlat" id="map-coordenades">
+
+                <br>
+            </div>
+        </div>
+
+        <div class="row">
+
+            <div class="small-12 columns text-center" ng-show="message">
+                <span class="label {{labelType}}">{{message}}</span>
+            </div>
+
+            <div class="small-12 columns"><br></div>
+
+            <div class="small-12 columns text-center">
+                <input type="submit" value="Edit Survivor" ng-click="editSurvivor()" class="button">
+            </div>
+        </div>
     </div>
-
-    <div class="row">
-
-        <div class="small-3 columns">
-            <label for="name" class="text-right middle">
-                Name:
-            </label>
-        </div>
-
-        <div class="small-6 columns">
-            <input type="text" id="name" placeholder="Name" ng-model="survivor.name">
-        </div>
-
-        <div class="small-12 columns"></div>
-
-        <div class="small-3 columns">
-            <label for="age" class="text-right middle">
-                Age:
-            </label>
-        </div>
-
-        <div class="small-6 columns">
-            <input type="text" id="age" placeholder="Age" ng-model="survivor.age">
-        </div>
-
-        <div class="small-12 columns"></div>
-
-        <div class="small-3 columns">
-            <label class="text-right">
-                Gender:
-            </label>
-        </div>
-
-        <div class="large-6 columns">
-
-            <input type="radio" id="genderM" name="gender" ng-model="survivor.gender" value="M">
-            <label for="genderM">Male </label>
-
-            <input type="radio" id="genderF" name="gender" ng-model="survivor.gender" value="F">
-            <label for="genderF">Female </label>
-        </div>
-
-
-        <div class="small-12 columns"><br></div>
-
-        <div class="large-3 collumns">
-            <label class="text-right">Location of the Player: </label>
-        </div>
-
-        <div class="large-6 columns">
-            <ui-gmap-google-map center='map.center' zoom='map.zoom' events="map.events">
-                <ui-gmap-marker idkey='marker.id' coords='marker.coords' options="marker.options"></ui-gmap-marker>
-            </ui-gmap-google-map>
-
-            <input type="hidden" ng-model="survivor.lonlat" id="map-coordenades">
-
-            <br>
-        </div>
-    </div>
-
-    <div class="row">
-
-        <div class="small-12 columns text-center" ng-show="success">
-            <span class="label success">Survivor edited with success!</span>
-        </div>
-
-        <div class="small-12 columns"><br></div>
-
-        <div class="small-12 columns text-center">
-            <input type="submit" value="Edit Survivor" ng-click="editSurvivor()" class="button">
-        </div>
-    </div>
-</div>
+</form>

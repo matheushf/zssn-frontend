@@ -4,7 +4,6 @@
     </div>
 </div>
 
-</div>
 <form>
     <div class="row">
 
@@ -46,6 +45,13 @@
     </div>
 
     <div class="row">
+
+
+        <div class="small-12 columns text-center" ng-show="message">
+            <span class="label {{labelType}}">{{message}}</span>
+        </div>
+
+        <div class="small-12 columns"><br></div>
 
         <div class="small-12 text-center columns">
             <input type="submit" ng-click="reportInfected(reporter, survivorReported.location)"

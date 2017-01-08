@@ -2,6 +2,7 @@ $(function () {
     // Add items in the table
 
     $("#table-items-add").click(function () {
+        console.log('e');
         $("#table-items").removeClass('hide');
         var item = $("#table-items-select").val();
         var html = "<tr><td>" + item + "</td>" +

@@ -4,7 +4,8 @@ angular.module('appZssn')
         $scope.fetch = function (id) {
 
             var items = PropertiesApi.fetch({person_id: id}, function () {
-                $scope.items = items[0].item;
+                $scope.items = items;
+                console.log(items);
             });
         }
     });

@@ -1,14 +1,42 @@
-<br>
-<h3>Fetch items from a Survivor</h3>
+<div class="row">
 
-<label>ID</label>
-<input type="text" placeholder="Id" ng-model="id" autofocus>
-<input type="submit" value="Fetch items" ng-click="fetch(id)">
+    <div class="small-12 columns">
+        <h3>Fetch items from a Survivor</h3>
+        <br>
+    </div>
+
+    <div class="small-12 columns"></div>
+
+    <div class="small-3 columns text-right">
+        <label>ID:</label>
+    </div>
+    <div class="small-6 columns">
+        <input type="text" placeholder="Id" ng-model="id" autofocus>
+    </div>
+
+    <div class="small-12 columns"></div>
+
+    <div class="small-12 columns text-center">
+        <br>
+        <input type="submit" value="Fetch items" ng-click="fetch(id)" class="button">
+    </div>
+
+</div>
 
 <div ng-show="items">
+    <div class="row">
 
-    <h3>Items: </h3>
+        <br><br>
+        <div class="small-12 columns"></div>
 
-    {{items.name}} -  {{items.points}}
-
+        <div class="small-12 columns text-left">
+            <h3>Items: </h3>
+        </div>
+        <div class="small-12 columns text-center">
+            <br>
+            <p ng-repeat="item in items">
+                {{item.item.name}} - {{item.item.points}}
+            </p>
+        </div>
+    </div>
 </div>

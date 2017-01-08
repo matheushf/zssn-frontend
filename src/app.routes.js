@@ -40,12 +40,12 @@ angular.module('appZssn')
             })
             .state('properties.trade-items', {
                 url: '/properties.trade-items',
-                templateUrl: 'modules/properties/trade-items',
+                templateUrl: 'modules/properties/trade-items.html',
                 controller: 'PropertiesController'
             })
             .state('properties.fetch-items', {
                 url: '/properties.fetch-items',
-                templateUrl: 'modules/properties/fetch-items',
+                templateUrl: 'modules/properties/fetch-items.html',
                 controller: 'PropertiesController'
             })
     }]);

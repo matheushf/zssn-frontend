@@ -75,11 +75,19 @@ angular.module('appZssn')
             $(".item-name").each(function () {
                 string_value += $(this).attr("id") + ":" + $(this).val() + ";";
             });
-            $scope.survivor.items = string_value;
+            if (string_value)
+                $scope.survivor.items = string_value;
 
             var peopleEntry = PeopleApi.save($scope.survivor, function () {
-                if (peopleEntry)
-                    $scope.success = true;
+                if (peopleEntry) {
+                    console.log(peopleEntry);
+                    $scope.message = "Survivor added with success! User ID: " + peopleEntry.id;
+                    $scope.labelType = "success";
+                    $("form")[0].reset();
+                } else {
+                    $scope.message = "Error, try another name.";
+                    $scope.labelType = "alert";
+                }
             });
         };
 
@@ -90,72 +98,84 @@ angular.module('appZssn')
 
         };
 
-    })
-    .controller("PeopleControllerEdit", function ($scope, $controller, PeopleApi) {
-        angular.extend(this, $controller('PeopleController', {$scope: $scope}));
+    }).controller("PeopleControllerEdit", function ($scope, $controller, PeopleApi) {
+    angular.extend(this, $controller('PeopleController', {$scope: $scope}));
 
-        $scope.searchSurvivor = function (id) {
+    $scope.searchSurvivor = function (id) {
 
-            // Change the map to the right position, from the survivor
-            var peopleEntry = PeopleApi.get({
-                id: id
-            }, function () {
+        // Change the map to the right position, from the survivor
+        var peopleEntry = PeopleApi.get({
+            id: id
+        }, function () {
 
-                $scope.survivor = {
-                    name: peopleEntry.name,
-                    age: peopleEntry.age,
-                    gender: peopleEntry.gender,
-                    lonlat: peopleEntry.lonlat
-                };
+            $scope.survivor = {
+                name: peopleEntry.name,
+                age: peopleEntry.age,
+                gender: peopleEntry.gender,
+                lonlat: peopleEntry.lonlat
+            };
 
-                $scope.reCenter();
+            $scope.reCenter();
 
-            });
-        };
-
-        // Edit info about a survivor
-        $scope.editSurvivor = function () {
-
-            var peopleEntry = PeopleApi.update({id: $scope.survivorId}, $scope.survivor, function () {
-                if (peopleEntry)
-                    $scope.success = true;
-            });
-        };
-
-    })
-    .controller("PeopleControllerReportInfection", function ($scope, $controller, PeopleApi) {
-        angular.extend(this, $controller('PeopleController', {$scope: $scope}));
-
-
-        // Report survivors infected
-        $scope.reportInfected = function (reporterId, survivorReported) {
-
-            if (typeof reporter == 'undefined' || typeof survivorReported == 'undefined')
-                return false;
-
-            /*var reporterId = reporter.split('/');
-             reporterId = reporterId[reporterId.length - 1];*/
-
-            var survivorReportedId = survivorReported.split('/');
-            survivorReportedId = survivorReportedId[survivorReportedId.length - 1];
-
-            var peopleReport = PeopleApi.reportInfection({id: survivorReportedId}, {
-                infected: reporterId,
-                id: survivorReportedId
-            }, function () {
-                console.log(peopleReport);
-
-            })
-        };
-
-        $scope.fetchAll = function () {
-            var peopleEntries = PeopleApi.query(function () {
-                return peopleEntries;
-            })
-        };
-
-        PeopleApi.getAll(null, function (data) {
-            $scope.allPeople = data;
         });
+    };
 
+    // Edit info about a survivor
+    $scope.editSurvivor = function () {
+
+        var peopleEntry = PeopleApi.update({id: $scope.survivorId}, $scope.survivor, function () {
+            if (peopleEntry) {
+                $scope.message = "Survivor edited with success!";
+                $scope.labelType = "success";
+                $("form")[0].reset();
+            } else {
+                $scope.message = "Error, try another name.";
+                $scope.labelType = "alert";
+            }
+        });
+    };
+
+}).controller("PeopleControllerReportInfection", function ($scope, $controller, PeopleApi) {
+    angular.extend(this, $controller('PeopleController', {$scope: $scope}));
+
+
+    // Report survivors infected
+    $scope.reportInfected = function (reporterId, survivorReported) {
+
+        if (typeof reporter == 'undefined' || typeof survivorReported == 'undefined')
+            return false;
+
+        /*var reporterId = reporter.split('/');
+         reporterId = reporterId[reporterId.length - 1];*/
+
+        var survivorReportedId = survivorReported.split('/');
+        survivorReportedId = survivorReportedId[survivorReportedId.length - 1];
+
+        var peopleReport = PeopleApi.reportInfection({id: survivorReportedId}, {
+            infected: reporterId,
+            id: survivorReportedId
+        }, function () {
+
+            if (peopleReport) {
+                $scope.message = "Infection reported with success!";
+                $scope.labelType = "success";
+                $("form")[0].reset();
+            } else {
+                $scope.message = "Error, another time.";
+                $scope.labelType = "alert";
+            }
+
+        })
+    };
+
+    $scope.fetchAll = function () {
+        var peopleEntries = PeopleApi.query(function () {
+            return peopleEntries;
+        })
+    };
+
+    PeopleApi.getAll(null, function (data) {
+        $scope.allPeople = data;
     });
+
+});

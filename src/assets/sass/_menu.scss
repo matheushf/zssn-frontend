@@ -8,15 +8,39 @@
 }
 
 .menu-primary {
+  margin-top: 25px;
+
   li {
     border: 1px solid red;
     margin-right: 10px;
     min-width: 160px;
     text-align: center;
+    transition: border 0.5s ease-out;
 
     a {
       display: inline-block;
       color: white;
+      transition: color 0.5s ease-out;
+    }
+
+    &:hover {
+      border: 1px solid white;
+      transition: border 0.5s ease-out;
+
+      a {
+        color: red;
+        transition: color 0.5s ease-out;
+      }
+    }
+  }
+
+  .menu-active {
+    li {
+      border: 0;
+
+      a {
+        color: blue;
+      }
     }
   }
 }
@@ -29,7 +53,15 @@
     border-bottom: 1px solid red;
 
     a {
-      color: grey;
+      color: #969696;
+      transition: color 0.5s ease-out;
+    }
+
+    &:hover {
+      a {
+        color: white;
+        transition: color 0.5s ease-out;
+      }
     }
   }
 }
