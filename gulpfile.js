@@ -42,9 +42,7 @@ var srcWiredep = [
 var srcGeneral = [
     './src/assets/img/**/*',
     './src/assets/fonts/**/*',
-    './src/libs/*',
-    './src/pages/*',
-    './src/*.*'
+    './src/modules/**/*'
 ];
 
 // Process Sass and PostCSS
@@ -58,7 +56,7 @@ gulp.task('styles', function () {
         gulp.src(srcStyles),
         compass({
             config_file: './config.rb',
-            css: '.src//assets/css',
+            css: '.src/assets/css',
             sass: './src/assets/sass'
         }),
         postcss(processors),
@@ -215,4 +213,12 @@ gulp.task('build', function () {
         gulp.src(srcGeneral, {base: './src'}),
         gulp.dest('./dist')
     ]);
+});
+
+gulp.task('serve:dist', ['build'], function () {
+    browserSync.init({
+        server: {
+            baseDir: "./dist"
+        }
+    })
 });
