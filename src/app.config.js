@@ -8,4 +8,4 @@ angular.module('appZssn')
             setCurrentMenu($('.menu'), toState.name);
         });
     })
-    .value('url', 'http://zssn-backend-example.herokuapp.com/api');
+    .value('url', 'http://localhost:3000/api');
