@@ -1,7 +1,7 @@
 angular.module('appZssn')
-    .factory('PropertiesApi', function ($http, $resource) {
+    .factory('PropertiesApi', function ($http, $resource, url) {
 
-        var url = 'http://zssn-backend-example.herokuapp.com/api/people/';
+        url += '/people/';
 
         return $resource(url + ':person_id', null, {
             trade: {

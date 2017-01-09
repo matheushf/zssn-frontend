@@ -1,9 +1,9 @@
 angular.module('appZssn')
-    .factory('ReportsApi', function ($http, $resource) {
+    .factory('ReportsApi', function ($http, $resource, url) {
 
-        var url = "http://zssn-backend-example.herokuapp.com/api/report/";
+        url += "/report/";
 
-            return $resource(url, null, {
+        return $resource(url, null, {
             infected: {
                 method: 'GET',
                 url: url + 'infected'

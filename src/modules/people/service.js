@@ -1,7 +1,7 @@
 angular.module('appZssn')
-    .factory('PeopleApi', function ($http, $resource) {
+    .factory('PeopleApi', function ($http, $resource, url) {
 
-        var url = 'http://zssn-backend-example.herokuapp.com/api/people';
+        url += '/people';
 
         return $resource(url, null,
             {

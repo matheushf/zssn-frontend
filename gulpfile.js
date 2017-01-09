@@ -40,6 +40,7 @@ var srcWiredep = [
 ];
 
 var srcGeneral = [
+    './src/**/*',
     './src/assets/img/**/*',
     './src/assets/fonts/**/*',
     './src/modules/**/*'

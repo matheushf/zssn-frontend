@@ -41,5 +41,6 @@ jspm_packages
 .node_repl_history
 
 # Ignore for using in both branches
-src/modules/people/service.js
-src/modules/properties/service.js
+#src/modules/people/service.js
+#src/modules/properties/service.js
+#src/modules/reports/service.js

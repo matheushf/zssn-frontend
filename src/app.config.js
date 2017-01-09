@@ -4,9 +4,8 @@ angular.module('appZssn')
     .run(function ($rootScope) {
         $rootScope.$on('$stateChangeStart', function (evt, toState, toParams, fromState, fromParams) {
 
-            /*console.log("$stateChangeStart " + fromState.name + JSON.stringify(fromParams) + " -> " + toState.name + JSON.stringify(toParams));*/
-
+            //todo
             setCurrentMenu($('.menu'), toState.name);
-            // console.log(toState.name);
         });
-    });
+    })
+    .value('url', 'http://zssn-backend-example.herokuapp.com/api');
