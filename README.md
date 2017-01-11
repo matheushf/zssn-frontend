@@ -4,9 +4,15 @@ FrontEnd test CodeMiner42
 <br>
 **For Development:**
 <br>
-gulp watch
+`npm install`
+<br>
+
+`bower install`
+<br>
+
+`gulp watch`
 <br>
 <br>
 **To start the server (dist)**
 <br>
-gulp server:dist
+`gulp server:dist`
